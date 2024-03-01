@@ -1,0 +1,39 @@
+<canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas>
+
+<script>
+//import the canvas
+
+var ctx = document.getElementById("ctx").getContext("2d");
+ctx.font = "20px Arial";
+
+var x = 50;
+var y = 50;
+var spd = 10;
+ctx.fillText("o", x, y);
+ctx.fillText("o", x + 50, y + 50);
+
+function guy(x, y, distance, step) {
+    var cx = x;
+    var cy = y;
+    var xd = 1 * distance;
+    var yd = 1 * distance;
+    ctx.fillText("o", x + (i * xd), y + (i * yd))
+    for (var i = 0; i < step; i++) {
+        if (cx <= 0 || cx >= 500) xd = xd * -1;
+        if (cy <= 0 || cy >= 500) yd = yd * -1;
+        cx = cx + (i * xd);
+        cy = cy + (i * yd);
+        ctx.fillText("o", cx, cy);
+    }
+    console.log("Guys");
+}
+guy(50, 60, 10, 500);
+
+function update() {
+    x = x + spd;
+    y = y + spd;
+    ctx.fillText("o", x, y);
+}
+
+update();
+</script>
